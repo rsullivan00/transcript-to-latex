@@ -1,1 +1,1 @@
-web: gunicorn scu-transcript.wsgi --log-file -
+web: gunicorn scutranscript.wsgi --log-file -
