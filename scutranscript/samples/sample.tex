@@ -1,0 +1,170 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Short Sectioned Assignment
+% LaTeX Template
+% Version 1.0 (5/5/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Frits Wenneker (http://www.howtotex.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%   PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[paper=a4, fontsize=11pt]{scrartcl} % A4 paper and 11pt font size
+
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{fourier} % Use the Adobe Utopia font for the document - comment this line to return to the LaTeX default
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+\usepackage{multirow}
+
+\usepackage{sectsty} % Allows customizing section commands
+
+\usepackage{listings}
+\lstset{breaklines=true}
+
+\allsectionsfont{\centering \normalfont\scshape} % Make all sections centered, the default font and small caps
+
+\usepackage{fancyhdr} % Custom headers and footers
+\pagestyle{fancyplain} % Makes all pages in the document conform to the custom headers and footers
+\fancyhead{} % No page header - if you want one, create it in the same way as the footers below
+\fancyfoot[L]{} % Empty left footer
+\fancyfoot[C]{} % Empty center footer
+\fancyfoot[R]{\thepage} % Page numbering for right footer
+\renewcommand{\headrulewidth}{0pt} % Remove header underlines
+\renewcommand{\footrulewidth}{0pt} % Remove footer underlines
+\setlength{\headheight}{13.6pt} % Customize the height of the header
+
+\numberwithin{equation}{section} % Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{figure}{section} % Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+
+%----------------------------------------------------------------------------------------
+%   TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command with 1 argument of height
+
+\title{ 
+\normalfont \normalsize 
+\textsc{Santa Clara University} \\ [25pt] % Your university, school and/or department name(s)
+\horrule{0.5pt} \\[0.4cm] % Thin top horizontal rule
+\huge Multi-level Caching Lab\\ % The assignment title
+\horrule{2pt} \\[0.5cm] % Thick bottom horizontal rule
+}
+
+\author{Rick Sullivan} % Your name
+
+\date{\normalsize\today} % Today's date or a custom date
+
+\begin{document}
+
+\maketitle % Print the title
+
+%----------------------------------------------------------------------------------------
+%   Body
+%----------------------------------------------------------------------------------------
+
+\section{Introduction}
+To justify the logic behind my generated input file, I will use the GNU Image Manipulation Program (GIMP) as an example. When running in Windows 8.1, GIMP uses about 34 MB of memory when only open, without any editor windows or images loaded. Opening an image of about 2 MB, the memory used by GIMP increases to just under 37 MB - an increase of 3 MB. Opening any of the modular toolbox windows increases memory usage by about another 2 MB.
+
+A single page in memory is typically around 4096 bytes (tested on my system using \texttt{getconf PAGESIZE}). Therefore, GIMP's 34 MB usage will request data from about 8,300 pages of memory. These pages will likely be physically close in memory, as they are all part of the foundation of GIMP. They will be requested throughout the entire time the program is being used. Loading a 2 MB image would require loading approximately 500 pages from memory. This data is likely stored in a completely different location than the GIMP core. Opening a 2 MB toolbar would similarly require ~500 pages. These would logically be close to the GIMP core code.
+
+\subsection{Workload generation}
+To mimic a real world program like GIMP, I will create an input file that requests a 'program core' more often than any other memory pages. Using the requested total number of pages requested of 10,000, I will assume that the most often requested part of our program is the first 1,000 pages. The 'program' being run also has 2,000 more pages that make up the program itself, which take up the next 2,000 pages. The workload also makes periodic requests to a chunk of external memory: it makes 100,000 consecutive requests for a page in a 1,000 page range in the remaining 7,000 pages. These requests mimic locality of data accessed from loading a large external file. In between each of these large external reads, the 'program' accesses the location of its code as well.
+
+The script for generating this input file can be seen in section \ref{createInputs}.
+
+\section{Analysis}
+I tested each combination of two-level caches assuming a combined cache size of 500 pages. The script for automating these tests can be found in section \ref{runTests}, with the output in section \ref{output}. I tested combinations of four algorithms: LRU, LFU, Second Chance, and a purely random page replacement algorithm. The miss rates for each two-level combination can be seen in figure \ref{missRates}. For the sake of brevity in this report, I will focus on analyzing the most successful combination of caches: LFU as a first cache, and LRU as the second cache.
+
+\begin{figure}    \centering
+    \begin{tabular}{l l | l | l | l | l}
+        \multicolumn{2}{r}{} & \multicolumn{4}{ c }{Second-level cache} \\
+        & &   LRU     &   LFU     &   Sec. Chance & Random \\ \cline{2-6}
+        \multirow{4}{*}{First-level cache} & LRU     &   77.8\%  &  73.2\%   &   77.4\%  &   72.6\% \\ 
+        & LFU     &   72.0\%  &   92.0\%  &   72.2\%  &   72.2\%  \\ 
+        & Sec. Chance & 79.7\% &  73.4\%  &   79.7\%  &   73.0\%  \\
+        & Random &    72.6\%  &   73.3\%  &   72.4\%  &   79.8\%  
+    \end{tabular}
+    \caption{Miss rates for two-level cache combinations}
+    \label{missRates}
+\end{figure}
+
+LFU attempts to keep any pages that are accessed many times in memory as long as possible. With it as the first cache, it manages to keep many pages from the 'core' of my simulated programs cached. This is because my simulated page requests begin with many requests for pages in the 'program core.' Between large external memory accesses, my workload returns to request these same pages. LFU likely has kept many of those pages loaded. 
+
+\subsection{LFU's approach}
+Interestingly, LFU is the least accurate algorithm when considered on its own. It only has an 8\% hit rate when used as a single 250-page cache, which increases to 16\% when the size is doubled. As mentioned above, this is likely because it loads many pages at the beginning, yet never releases them from memory. Therefore, it will never allow any of the externally loading pages to be cached, and will miss nearly every request during these periods. Its single advantage is being able to keep some of the program core in memory.
+
+\subsection{LRU's approach}
+LRU fares much better on its own. At a cache size of 250 pages, it has a hit rate of 20\%, and reaches a 40\% hit rate at 500 pages. LRU, unlike LFU, is able to better adapt to large external memory accesses. When the program loads many pages from a new range of memory, LRU will flush all of the program execution pages from cache, allowing pages from this new range to be kept in memory. However, when the program returns to request its core program memory, LRU will have replaced every page, resulting in many misses.
+
+\subsection{Combination results}
+In some ways, LFU and LRU take nearly opposite approaches; LFU tries to hold on to a page that used to be accessed many times in the hope that it is accessed again, while LRU tries to pay attention to the location of memory the program is currently accessing. These approaches complement each other when used in tandem. LFU holds much of the program core in memory throughout execution, while LRU supports caching of external areas of memory.
+
+This combination of LFU and LRU resulted in a 28\% hit rate with each level of cache having 250 pages in memory. Using LRU as the first-level cache and LFU as the second-level also resulted in decent results, with a hit rate of 26.8\%. This is slightly less ideal for the workload we have generated, because LFU will not have the ability to immediately start caching the pages that are used most frequently. It would have to wait for spillover from the LRU cache.
+
+\subsection{Notes on experiment accuracy}
+It is worth noting that using a purely random algorithm as either of the caches led to some of the most accurate test results. This is likely because my generated workload is not completely indicative of a real-world program. While the combination of LFU and LRU worked for this generated workload, results could be very different using an actual program.
+
+\pagebreak
+
+%----------------------------------------------------------------------------------------
+%  Appendix 
+%----------------------------------------------------------------------------------------
+
+\section{Appendix}
+
+%------------------------------------------------
+
+\subsection{Input generation} \label{createInputs}
+\lstinputlisting[language=Python]{../createInputs.py}
+%\pagebreak
+
+%------------------------------------------------
+
+\subsection{Test automation} \label{runTests}
+\lstinputlisting[language=Python]{../runTests.py}
+%\pagebreak
+
+%------------------------------------------------
+
+\subsection{Test output} \label{output}
+\lstinputlisting[language=bash]{../output.txt}
+%\pagebreak
+
+%------------------------------------------------
+\subsection{Page replacement algorithm source code}
+This appendix section contains the sources used for implementing each page replacement algorithm. Each algorithm uses the Page class, which is shown in this section. Simple STL data structures were used to implement each algorithm. Stack and array-based algorithms were implemented using std::vector, while queue-based algorithms were implemented using std::deque. 
+
+\subsubsection{Page.h}
+\lstinputlisting[language=C++]{../Page.h}
+\subsubsection{Page.cpp}
+\lstinputlisting[language=C++]{../Page.cpp}
+
+\subsubsection{Least Recently Used}
+\lstinputlisting[language=C++]{../lru.cpp}
+
+\subsubsection{Least Frequently Used}
+\lstinputlisting[language=C++]{../lfu.cpp}
+
+\subsubsection{Second Chance}
+\lstinputlisting[language=C++]{../secondChance.cpp}
+
+\subsubsection{Random}
+\lstinputlisting[language=C++]{../random.cpp}
+
+%------------------------------------------------
+\end{document}
