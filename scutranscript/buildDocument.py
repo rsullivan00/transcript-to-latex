@@ -28,8 +28,9 @@ def buildDocument(content):
     doc.append(section)
 
     doc.generate_pdf()
+    return doc
 
 def test():
     buildDocument(None)
 
-test()
+#test()

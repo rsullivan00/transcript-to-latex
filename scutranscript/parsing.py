@@ -8,11 +8,11 @@ def parseBody(text):
     text = []
     for line in text2d:
         if  not len(line) or re.match('^(\n| )+$', line):
-            print 'Empty line'
+            print('Empty line')
         else:
             # Remove repeated spaces
             line = re.sub(' +', ' ', line)
-            print line
+            print(line)
             text.append(line)
 
 
@@ -21,6 +21,6 @@ def parseBody(text):
 
 def test():
     inFile = open('samples/rick.txt', 'r')
-    print (parseBody(inFile.read()))
+    print(parseBody(inFile.read()))
 
-test()
+#test()
