@@ -1,31 +1,22 @@
 #from PyLaTeX import *
-from pylatex import Document, Section, Subsection, Table, Math, TikZ, Axis, \
-            Plot
+from pylatex import Document, Section, Subsection, Table, Command
 from pylatex.numpy import Matrix
 from pylatex.utils import * 
 
+from .transcript import Transcript
 from .helpers import debug_print
 
-skip_sections = [
-    'Saved',
-    'Return',
-    'Report Results'
-]
-
-def build_document(transcript_sections):
-    """
-    for skip in skip_sections:
-        try:
-            content.remove(skip)
-        except ValueError:
-            debug_print(skip + ' section to skip not found')
-    """
-
+"""
+Processes a Transcript object to build a LaTeX document.
+"""
+def build_document(transcript):
     # Open temporary file
-    doc = Document(documentclass='scrartcl')
+    doc = Document(documentclass='scrartcl', title=transcript.title, author=transcript.student, date=transcript.date)
+
+    doc.append(Command('maketitle'))
 
     # Iterate through each transcript seuction
-    for t_section in transcript_sections:
+    for t_section in transcript.sections:
         # Create new section
         s = Section(escape_latex(t_section.title))
         # Add content to section

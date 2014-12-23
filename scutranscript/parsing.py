@@ -5,6 +5,12 @@ import string
 from .helpers import debug_print
 from .transcript import *
 
+skip_sections = [
+    'Saved',
+    'Return',
+    'Report Results'
+]
+
 def lex_by_lines(s):
     # Remove repeated newlines
     s = re.sub('\n+', '\n', s)
@@ -21,43 +27,54 @@ def lex_by_lines(s):
     lexed = []
     # Filter out empty lines from array of strings
     for line in lines:
+        line = line.strip()
         # Filter out empty lines
-        if len(line) > 0 and not re.match(whitespace_regex, line):
-            cleaned = line.strip()
+        if len(line) > 0 and not re.match(whitespace_regex, line) and line not in skip_sections:
             # Remove repeated spaces
-            cleaned = re.sub(' +', ' ', cleaned)
-            lexed.append(cleaned)
+            line = re.sub(' +', ' ', line)
+            lexed.append(line)
 
     return lexed
- 
+
+
+"""
+Populates and returns a Transcript object with raw pasted data from an eCampus unofficial web transcript.
+"""
 def parse_body(text):
     lexed = lex_by_lines(text)
+
 #    for line in lexed:
 #        debug_print(line)
 
-    sectioned = []
+    transcript = Transcript()
     # Divide into sections by section headers
     header_prefix = '- - - - -'
+    metadata = []
     for line in lexed:
         if line[:len(header_prefix)] == header_prefix:
             # Start the new section
             sec = TranscriptSection(line)
-            sectioned.append(sec)
+            transcript.sections.append(sec)
             debug_print(line)
         else:
             # Or add to current section
-            if len(sectioned) == 0:
-                header = TranscriptSection('header')
-                sectioned.append(header)
+            if len(transcript.sections) == 0:
+                # First section contains metadata
+                metadata.append(line)
             else:
-                #import pdb; pdb.set_trace()
-                sectioned[-1].content.append(line)
+                transcript.sections[-1].content.append(line)
 
-#    for section in sectioned:
-#        for line in section.content:
-#            debug_print(line)
+    # Process metadata
+    try:
+        transcript.title = metadata[0]
+        transcript.date = ' '.join(metadata[1].split(':')[-1].split('-'))
+        transcript.school = metadata[2]
+        transcript.student = metadata[3].split(':')[-1]
+        transcript.address = metadata[4].split(':')[-1]
+    except IndexError:
+        raise Exception("Metadata missing")
 
-    return sectioned
+    return transcript 
 
 
 def test():

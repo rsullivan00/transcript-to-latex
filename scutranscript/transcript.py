@@ -14,11 +14,13 @@ class Transcript:
     """ Contains all information necessary to build a transcript. 
     Used as an intermediate representation that can be referenced for generating a transcript in a variety of formats.
     """
-    def __init__(self, title='Web Unofficial Transcript', school='Santa Clara University', date=str(datetime.date), sections=['No content provided']):
+    def __init__(self, title='Web Unofficial Transcript', school='Santa Clara University', date=str(datetime.date), sections=[], student=None, address=None):
         self.title = title
         self.school = school 
         self.date = date 
         self.sections = sections
+        self.student = student
+        self.address = address
 
 class TranscriptSectionBase:
    def __init__(self, title, content=None, subsections=None):
