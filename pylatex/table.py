@@ -64,10 +64,10 @@ class Table(BaseLaTeXContainer):
         Add a multicolumn of width size to the table, with cell content content
         """
         self.append(r'\multicolumn{%d}{%s}{%s}' % (size, align, content))
-        if cells is not None:
-            self.add_row(cells)
-        else:
-            self.append(r'\\')
+        #if cells is not None:
+        #    self.add_row(cells)
+        #else:
+        #    self.append(r'\\')
 
     def add_multirow(self, size, align, content, hlines=True, cells=None,
                      escape=False):

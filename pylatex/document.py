@@ -70,7 +70,7 @@ class Document(BaseLaTeXContainer):
 
         subprocess.check_call(command, shell=True)
 
-        if clean:
-            subprocess.call('rm "' + self.filename + '.aux" "' +
-                            self.filename + '.log" "' +
-                            self.filename + '.tex"', shell=True)
+        #if clean:
+            #subprocess.call('rm "' + self.filename + '.aux" "' +
+            #                self.filename + '.log" "' +
+            #                self.filename + '.tex"', shell=True)

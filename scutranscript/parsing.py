@@ -4,7 +4,7 @@ import string
 import datetime
 
 from .helpers import debug_print
-from .transcript import Transcript, TranscriptSection
+from .transcript import Transcript, TranscriptSection, TranscriptSubSection
 
 skip_sections = [
     'Saved',
@@ -32,7 +32,7 @@ def lex_by_lines(s):
         # Filter out empty lines
         if len(line) > 0 and not re.match(whitespace_regex, line) and line not in skip_sections:
             # Remove repeated spaces
-            line = re.sub(' +', ' ', line)
+            line = re.sub('  +', '\t', line)
             lexed.append(line)
 
     return lexed
@@ -70,7 +70,7 @@ def parse_body(text):
             debug_print('New section: ' + title)
         elif any(line.startswith(pre) for pre in subsection_prefixes):
 #            import pdb; pdb.set_trace()
-            subsec = TranscriptSection(line)
+            subsec = TranscriptSubSection(line)
             transcript.sections[-1].subsections.append(subsec)
         else:
             # Or add to current section/subsection
@@ -81,10 +81,10 @@ def parse_body(text):
                 # Last added subsection
 #                if line[:4].isupper():
                     # Line has a class code, put it in a table
-                transcript.sections[-1].subsections[-1].content.append(line)
+                transcript.sections[-1].subsections[-1].add_content(line)
             else:
                 # Last added section
-                transcript.sections[-1].content.append(line)
+                transcript.sections[-1].add_content(line)
 
     # Process metadata
     try:
