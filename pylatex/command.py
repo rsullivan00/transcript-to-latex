@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
 """
-    pylatex.package
+    pylatex.command
     ~~~~~~~
 
     This module implements the class that deals with commands.
 
+    :copyright: (c) 2014 by Jelte Fennema.
     :license: MIT, see License for more details.
 """
 
@@ -36,23 +37,25 @@ class Command(BaseLaTeXClass):
         if self.option is None:
             option = ''
         else:
+            # Allow space delimited string options or iterable string containers
             if isinstance(self.option, str):
                 options = self.option.split(' ') 
             else:
                 options = self.option
 
+            option = ''
             for opt in options:
                 option += '[' + opt + ']'
 
         if self.argument is None:
-            # Should these braces always be present?
-            argument = '{}'
+            argument = ''
         else:
             if isinstance(self.argument, str):
                 arguments = self.argument.split(' ') 
             else:
                 arguments = self.argument
 
+            argument = ''
             for arg in arguments:
                 argument += '{' + arg + '}'
 

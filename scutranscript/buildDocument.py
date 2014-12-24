@@ -11,7 +11,7 @@ Processes a Transcript object to build a LaTeX document.
 """
 def build_document(transcript):
     # Open temporary file
-    doc = Document(documentclass='scrartcl', title=transcript.title, author=transcript.student, date=transcript.date)
+    doc = Document(documentclass='scrartcl', title=transcript.title, author=transcript.student, date=transcript.date.strftime('%d %B %Y'))
 
     doc.append(Command('maketitle'))
 
@@ -26,8 +26,8 @@ def build_document(transcript):
         # Add subsections to section
         for t_subsection in t_section.subsections:
             ss = Subsection(escape_latex(t_subsection.title))
-            for ss_line in t_subsection:
-                ss.append(escape_latex(ss_line))
+            for ss_line in t_subsection.content:
+                ss.append(escape_latex(ss_line) + ' \\\n')
 
             s.append(ss)
 

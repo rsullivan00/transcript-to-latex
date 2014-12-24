@@ -1,9 +1,10 @@
 import sys
 import re
 import string
+import datetime
 
 from .helpers import debug_print
-from .transcript import *
+from .transcript import Transcript, TranscriptSection
 
 skip_sections = [
     'Saved',
@@ -49,28 +50,50 @@ def parse_body(text):
     transcript = Transcript()
     # Divide into sections by section headers
     header_prefix = '- - - - -'
+    subsection_prefixes = [
+        'Program :',
+        'Test Credits Applied',
+        'Fall',
+        'Winter',
+        'Spring',
+        'Summer',
+        'Undergraduate Career',
+        'Graduate Career'
+    ]
     metadata = []
     for line in lexed:
         if line[:len(header_prefix)] == header_prefix:
             # Start the new section
-            sec = TranscriptSection(line)
+            title = line.split(header_prefix)[1].strip()
+            sec = TranscriptSection(title)
             transcript.sections.append(sec)
-            debug_print(line)
+            debug_print('New section: ' + title)
+        elif any(line.startswith(pre) for pre in subsection_prefixes):
+#            import pdb; pdb.set_trace()
+            subsec = TranscriptSection(line)
+            transcript.sections[-1].subsections.append(subsec)
         else:
-            # Or add to current section
+            # Or add to current section/subsection
             if len(transcript.sections) == 0:
                 # First section contains metadata
                 metadata.append(line)
+            elif len(transcript.sections[-1].subsections):
+                # Last added subsection
+#                if line[:4].isupper():
+                    # Line has a class code, put it in a table
+                transcript.sections[-1].subsections[-1].content.append(line)
             else:
+                # Last added section
                 transcript.sections[-1].content.append(line)
 
     # Process metadata
     try:
-        transcript.title = metadata[0]
-        transcript.date = ' '.join(metadata[1].split(':')[-1].split('-'))
-        transcript.school = metadata[2]
-        transcript.student = metadata[3].split(':')[-1]
-        transcript.address = metadata[4].split(':')[-1]
+        transcript.title = metadata[0].strip()
+        datestring = metadata[1].split(':')[-1].strip()
+        transcript.date = datetime.datetime.strptime(datestring, '%Y-%m-%d')
+        transcript.school = metadata[2].strip()
+        transcript.student = metadata[3].split(':')[-1].strip()
+        transcript.address = metadata[4].split(':')[-1].strip()
     except IndexError:
         raise Exception("Metadata missing")
 
