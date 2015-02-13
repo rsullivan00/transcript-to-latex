@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.11.20)  13 FEB 2015 08:04
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.11.20)  13 FEB 2015 08:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -6,90 +6,24 @@ entering extended mode
 (./default_filename.tex
 LaTeX2e <2011/06/27>
 Babel <3.9h> and hyphenation patterns for 78 languages loaded.
-(/usr/share/texlive/texmf-dist/tex/latex/koma-script/scrartcl.cls
-Document Class: scrartcl 2013/12/19 v3.12 KOMA-Script document class (article)
-(/usr/share/texlive/texmf-dist/tex/latex/koma-script/scrkbase.sty
-Package: scrkbase 2013/12/19 v3.12 KOMA-Script package (KOMA-Script-dependent b
-asics and keyval usage)
-
-(/usr/share/texlive/texmf-dist/tex/latex/koma-script/scrbase.sty
-Package: scrbase 2013/12/19 v3.12 KOMA-Script package (KOMA-Script-independent 
-basics and keyval usage)
-
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
-Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
-\KV@toks@=\toks14
+(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 )
-(/usr/share/texlive/texmf-dist/tex/latex/koma-script/scrlfile.sty
-Package: scrlfile 2013/12/19 v3.12 KOMA-Script package (loading files)
-
-Package scrlfile, 2013/12/19 v3.12 KOMA-Script package (loading files)
-                  Copyright (C) Markus Kohm
-
-))) (/usr/share/texlive/texmf-dist/tex/latex/koma-script/tocbasic.sty
-Package: tocbasic 2013/12/19 v3.12 KOMA-Script package (handling toc-files)
-)
-Package tocbasic Info: omitting babel extension for `toc'
-(tocbasic)             because of feature `nobabel' available
-(tocbasic)             for `toc' on input line 115.
-Package tocbasic Info: omitting babel extension for `lof'
-(tocbasic)             because of feature `nobabel' available
-(tocbasic)             for `lof' on input line 116.
-Package tocbasic Info: omitting babel extension for `lot'
-(tocbasic)             because of feature `nobabel' available
-(tocbasic)             for `lot' on input line 117.
-Class scrartcl Info: File `scrsize11pt.clo' used instead of
-(scrartcl)           file `scrsize11.clo' to setup font sizes on input line 153
-1.
-
-(/usr/share/texlive/texmf-dist/tex/latex/koma-script/scrsize11pt.clo
-File: scrsize11pt.clo 2013/12/19 v3.12 KOMA-Script font size class option (11pt
-)
-)
-(/usr/share/texlive/texmf-dist/tex/latex/koma-script/typearea.sty
-Package: typearea 2013/12/19 v3.12 KOMA-Script package (type area)
-
-Package typearea, 2013/12/19 v3.12 KOMA-Script package (type area)
-                  Copyright (C) Frank Neukam, 1992-1994
-                  Copyright (C) Markus Kohm, 1994-
-
-\ta@bcor=\skip41
-\ta@div=\count79
-\ta@hblk=\skip42
-\ta@vblk=\skip43
-\ta@temp=\skip44
-\footheight=\skip45
-Package typearea Info: These are the values describing the layout:
-(typearea)             DIV  = 10
-(typearea)             BCOR = 0.0pt
-(typearea)             \paperwidth      = 597.50793pt
-(typearea)              \textwidth      = 418.25555pt
-(typearea)              DIV departure   = -6%
-(typearea)              \evensidemargin = 17.3562pt
-(typearea)              \oddsidemargin  = 17.3562pt
-(typearea)             \paperheight     = 845.04694pt
-(typearea)              \textheight     = 595.80026pt
-(typearea)              \topmargin      = -25.16531pt
-(typearea)              \headheight     = 17.0pt
-(typearea)              \headsep        = 20.40001pt
-(typearea)              \topskip        = 11.0pt
-(typearea)              \footskip       = 47.6pt
-(typearea)              \baselineskip   = 13.6pt
-(typearea)              on input line 1330.
-)
-\c@part=\count80
-\c@section=\count81
-\c@subsection=\count82
-\c@subsubsection=\count83
-\c@paragraph=\count84
-\c@subparagraph=\count85
-\abovecaptionskip=\skip46
-\belowcaptionskip=\skip47
-\c@pti@nb@sid@b@x=\box26
-\c@figure=\count86
-\c@table=\count87
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
 \bibindent=\dimen102
-) (/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
+)
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.def
@@ -98,8 +32,8 @@ LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2008/03/30 v1.1d Input encoding file
-\inpenc@prehook=\toks15
-\inpenc@posthook=\toks16
+\inpenc@prehook=\toks14
+\inpenc@posthook=\toks15
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2008/04/05 v1.1m UTF-8 support for inputenc
@@ -355,23 +289,23 @@ Package: tabu 2011/02/26 v2.8 - flexible LaTeX tabulars (FC)
 Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
 \col@sep=\dimen103
 \extrarowheight=\dimen104
-\NC@list=\toks17
-\extratabsurround=\skip48
-\backup@length=\skip49
+\NC@list=\toks16
+\extratabsurround=\skip43
+\backup@length=\skip44
 )
 (/usr/share/texlive/texmf-dist/tex/latex/varwidth/varwidth.sty
 Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
-\@vwid@box=\box27
-\sift@deathcycles=\count88
+\@vwid@box=\box26
+\sift@deathcycles=\count87
 \@vwid@loff=\dimen105
 \@vwid@roff=\dimen106
 )
-\c@taburow=\count89
-\tabu@nbcols=\count90
-\tabu@cnt=\count91
-\tabu@Xcol=\count92
-\tabu@alloc=\count93
-\tabu@nested=\count94
+\c@taburow=\count88
+\tabu@nbcols=\count89
+\tabu@cnt=\count90
+\tabu@Xcol=\count91
+\tabu@alloc=\count92
+\tabu@nested=\count93
 \tabu@target=\dimen107
 \tabu@spreadtarget=\dimen108
 \tabu@naturalX=\dimen109
@@ -381,13 +315,13 @@ Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \abovetabulinesep=\dimen113
 \belowtabulinesep=\dimen114
 \tabustrutrule=\dimen115
-\tabu@thebody=\toks18
-\tabu@footnotes=\toks19
-\tabu@box=\box28
-\tabu@arstrutbox=\box29
-\tabu@hleads=\box30
-\tabu@vleads=\box31
-\tabu@cellskip=\skip50
+\tabu@thebody=\toks17
+\tabu@footnotes=\toks18
+\tabu@box=\box27
+\tabu@arstrutbox=\box28
+\tabu@hleads=\box29
+\tabu@vleads=\box30
+\tabu@cellskip=\skip45
 )
 (./default_filename.aux)
 \openout1 = `default_filename.aux'.
@@ -408,106 +342,124 @@ LaTeX Font Info:    Try loading font information for T1+lmr on input line 14.
  (/usr/share/texmf/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for T1+lmss on input line 15.
-
-(/usr/share/texmf/tex/latex/lm/t1lmss.fd
-File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 15.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 14.
 
 (/usr/share/texmf/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 15.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 14.
 
 (/usr/share/texmf/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 15.
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 14.
 
 
 (/usr/share/texmf/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 15.
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 14.
 
 
 (/usr/share/texmf/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 15.
+(Font)              <12> on input line 14.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 15.
+(Font)              <8> on input line 14.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 15.
+(Font)              <6> on input line 14.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 18.
+(Font)              <10> on input line 18.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 18.
+(Font)              <7> on input line 18.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 18.
+(Font)              <5> on input line 18.
 
-Overfull \hbox (4.84256pt too wide) in paragraph at lines 18--26
+Overfull \hbox (47.63792pt too wide) in paragraph at lines 18--26
+[] 
+ []
+
+
+Overfull \hbox (25.9436pt too wide) in paragraph at lines 53--66
 [] 
  []
 
 [1
 
-
-
-
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (4.95036pt too wide) in paragraph at lines 83--95
+Overfull \hbox (34.56906pt too wide) in paragraph at lines 67--82
 [] 
  []
 
 
-Overfull \hbox (6.71422pt too wide) in paragraph at lines 106--119
+Overfull \hbox (47.73645pt too wide) in paragraph at lines 83--95
+[] 
+ []
+
+
+Overfull \hbox (39.9858pt too wide) in paragraph at lines 96--105
+[] 
+ []
+
+
+Overfull \hbox (49.34724pt too wide) in paragraph at lines 106--119
 [] 
  []
 
 [2]
-Overfull \hbox (2.75879pt too wide) in paragraph at lines 156--166
+Overfull \hbox (38.01373pt too wide) in paragraph at lines 120--130
+[] 
+ []
+
+
+Overfull \hbox (2.01332pt too wide) in paragraph at lines 131--155
+[] 
+ []
+
+
+Overfull \hbox (45.73499pt too wide) in paragraph at lines 156--166
+[] 
+ []
+
+
+Overfull \hbox (53.81892pt too wide) in paragraph at lines 167--179
 [] 
  []
 
 [3]
-Overfull \hbox (11.61075pt too wide) in paragraph at lines 167--179
+Overfull \hbox (45.76216pt too wide) in paragraph at lines 180--192
 [] 
  []
 
 
-Overfull \hbox (2.78853pt too wide) in paragraph at lines 180--192
+Overfull \hbox (49.0398pt too wide) in paragraph at lines 193--202
 [] 
  []
 
 
-Overfull \hbox (6.3775pt too wide) in paragraph at lines 193--202
+Overfull \hbox (112.10939pt too wide) in paragraph at lines 203--205
 [] 
  []
 
-
-Overfull \hbox (73.15875pt too wide) in paragraph at lines 203--205
-[] 
- []
-
-[4] [5] (./default_filename.aux) ) 
+[4] (./default_filename.aux) ) 
 Here is how much of TeX's memory you used:
- 2815 strings out of 493304
- 41378 string characters out of 6139870
- 148951 words of memory out of 5000000
- 6264 multiletter control sequences out of 15000+600000
- 46375 words of font info for 42 fonts, out of 8000000 for 9000
+ 1571 strings out of 493304
+ 19820 string characters out of 6139870
+ 82450 words of memory out of 5000000
+ 5041 multiletter control sequences out of 15000+600000
+ 44213 words of font info for 40 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 35i,9n,38p,278b,314s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.en
-c}</usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/typ
-e1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmssbx10.pfb>
-Output written on default_filename.pdf (5 pages, 91425 bytes).
+ 24i,9n,23p,250b,313s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}</
+usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/
+public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/sha
+re/texmf/fonts/type1/public/lm/lmr17.pfb>
+Output written on default_filename.pdf (4 pages, 114735 bytes).
 PDF statistics:
- 33 PDF objects out of 1000 (max. 8388607)
- 22 compressed objects within 1 object stream
+ 34 PDF objects out of 1000 (max. 8388607)
+ 23 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
