@@ -29,6 +29,7 @@ class Document(BaseLaTeXContainer):
         fontenc = Package('fontenc', option=fontenc)
         inputenc = Package('inputenc', option=inputenc)
         packages = [fontenc, inputenc, Package('lmodern')]
+        self.preamble = []
 
         if title is not None:
             packages.append(Package(title, base='title'))
@@ -54,6 +55,9 @@ class Document(BaseLaTeXContainer):
         head = r'\documentclass{' + self.documentclass + '}'
 
         head += self.dumps_packages()
+
+        for command in self.preamble:
+            head += command.dumps()
 
         return head + document
 
