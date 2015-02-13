@@ -1,3 +1,2 @@
 git://github.com/heroku/heroku-buildpack-python.git
 git://github.com/Thermondo/heroku-buildpack-tex.git
-git://github.com/perplexes/heroku-buildpack-clearcache.git
