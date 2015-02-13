@@ -1,7 +1,8 @@
 #from PyLaTeX import *
-from pylatex import Document, Section, Subsection, Table, Command
+from pylatex import Document, Section, Subsection, Command
 from pylatex.numpy import Matrix
 from pylatex.utils import * 
+from pylatex.table import Tabu
 
 from .transcript import Transcript
 from .helpers import debug_print
@@ -27,14 +28,13 @@ def build_document(transcript):
         # Add subsections to section
         for t_subsection in t_section.subsections:
             ss = Subsection(escape_latex(t_subsection.title))
-            num_cols = 10 
-            ss_table = Table(' l ' * num_cols)
+            num_cols = max(len(l.split('\t')) for l in t_subsection.content)
+            ss_table = Tabu(' l ' * num_cols)
             # Add content to subsection
             for ss_line in t_subsection.content:
 
-#                if not re.match('^[A-Z][A-Z][A-Z]', ss_line):
                 if ss_line.startswith('Course Topic'):
-                    ss_table.add_multicolumn(1, 'l', ' ')
+                    #ss_table.add_multicolumn(1, 'l', ' ')
                     ss_table.append('&')
                     ss_table.add_multicolumn(num_cols-1, 'l', escape_latex(ss_line))
                     ss_table.append(r'\\')
@@ -47,7 +47,7 @@ def build_document(transcript):
                     if ss_line.startswith('TERM'):
                         ss_table.add_hline()
                     filled = escape_latex(ss_line).split('\t')
-                    filled += (num_cols - len(filled)) * [' ']
+                    filled += (num_cols - len(filled)) * ['']
                     ss_table.add_row(filled)
                     #ss.append(escape_latex(ss_line) + ' \\\n')
 

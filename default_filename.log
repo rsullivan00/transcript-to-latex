@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.11.20)  13 FEB 2015 06:15
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.11.20)  13 FEB 2015 08:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -347,72 +347,108 @@ LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  OT1/cmr/bx/it --> OT1/lmr/bx/it on input line 37.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 (Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 38.
-) (./default_filename.aux)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tabu/tabu.sty
+Package: tabu 2011/02/26 v2.8 - flexible LaTeX tabulars (FC)
+
+(/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
+Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
+\col@sep=\dimen103
+\extrarowheight=\dimen104
+\NC@list=\toks17
+\extratabsurround=\skip48
+\backup@length=\skip49
+)
+(/usr/share/texlive/texmf-dist/tex/latex/varwidth/varwidth.sty
+Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
+\@vwid@box=\box27
+\sift@deathcycles=\count88
+\@vwid@loff=\dimen105
+\@vwid@roff=\dimen106
+)
+\c@taburow=\count89
+\tabu@nbcols=\count90
+\tabu@cnt=\count91
+\tabu@Xcol=\count92
+\tabu@alloc=\count93
+\tabu@nested=\count94
+\tabu@target=\dimen107
+\tabu@spreadtarget=\dimen108
+\tabu@naturalX=\dimen109
+\tabucolX=\dimen110
+\tabu@Xsum=\dimen111
+\extrarowdepth=\dimen112
+\abovetabulinesep=\dimen113
+\belowtabulinesep=\dimen114
+\tabustrutrule=\dimen115
+\tabu@thebody=\toks18
+\tabu@footnotes=\toks19
+\tabu@box=\box28
+\tabu@arstrutbox=\box29
+\tabu@hleads=\box30
+\tabu@vleads=\box31
+\tabu@cellskip=\skip50
+)
+(./default_filename.aux)
 \openout1 = `default_filename.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 12.
-
-(/usr/share/texmf/tex/latex/lm/t1lmr.fd
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 14.
+ (/usr/share/texmf/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for T1+lmss on input line 13.
+LaTeX Font Info:    Try loading font information for T1+lmss on input line 15.
 
 (/usr/share/texmf/tex/latex/lm/t1lmss.fd
 File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 13.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 15.
 
 (/usr/share/texmf/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 13.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 15.
 
 (/usr/share/texmf/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 13.
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 15.
 
 
 (/usr/share/texmf/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 13.
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 15.
 
 
 (/usr/share/texmf/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 13.
+(Font)              <14.4> on input line 15.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 13.
+(Font)              <10> on input line 15.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 13.
+(Font)              <7> on input line 15.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 16.
+(Font)              <10.95> on input line 18.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 16.
+(Font)              <8> on input line 18.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 16.
+(Font)              <6> on input line 18.
 
-Overfull \hbox (52.84256pt too wide) in paragraph at lines 16--24
-[] 
- []
-
-
-Overfull \hbox (29.08733pt too wide) in paragraph at lines 51--65
+Overfull \hbox (4.84256pt too wide) in paragraph at lines 18--26
 [] 
  []
 
@@ -422,73 +458,53 @@ Overfull \hbox (29.08733pt too wide) in paragraph at lines 51--65
 
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (38.53217pt too wide) in paragraph at lines 66--83
+Overfull \hbox (4.95036pt too wide) in paragraph at lines 83--95
 [] 
  []
 
 
-Overfull \hbox (52.95036pt too wide) in paragraph at lines 84--97
-[] 
- []
-
-
-Overfull \hbox (44.46346pt too wide) in paragraph at lines 98--107
-[] 
- []
-
-
-Overfull \hbox (54.71422pt too wide) in paragraph at lines 108--122
+Overfull \hbox (6.71422pt too wide) in paragraph at lines 106--119
 [] 
  []
 
 [2]
-Overfull \hbox (42.30402pt too wide) in paragraph at lines 123--133
-[] 
- []
-
-
-Overfull \hbox (2.8836pt too wide) in paragraph at lines 134--162
-[] 
- []
-
-
-Overfull \hbox (50.75879pt too wide) in paragraph at lines 163--173
+Overfull \hbox (2.75879pt too wide) in paragraph at lines 156--166
 [] 
  []
 
 [3]
-Overfull \hbox (59.61075pt too wide) in paragraph at lines 174--187
+Overfull \hbox (11.61075pt too wide) in paragraph at lines 167--179
 [] 
  []
 
 
-Overfull \hbox (46.22603pt too wide) in paragraph at lines 188--200
+Overfull \hbox (2.78853pt too wide) in paragraph at lines 180--192
 [] 
  []
 
 
-Overfull \hbox (54.3775pt too wide) in paragraph at lines 201--210
+Overfull \hbox (6.3775pt too wide) in paragraph at lines 193--202
 [] 
  []
 
 
-Overfull \hbox (97.15875pt too wide) in paragraph at lines 211--213
+Overfull \hbox (73.15875pt too wide) in paragraph at lines 203--205
 [] 
  []
 
 [4] [5] (./default_filename.aux) ) 
 Here is how much of TeX's memory you used:
- 2003 strings out of 493304
- 29952 string characters out of 6139870
- 138474 words of memory out of 5000000
- 5463 multiletter control sequences out of 15000+600000
+ 2815 strings out of 493304
+ 41378 string characters out of 6139870
+ 148951 words of memory out of 5000000
+ 6264 multiletter control sequences out of 15000+600000
  46375 words of font info for 42 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 35i,7n,38p,278b,220s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 35i,9n,38p,278b,314s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.en
 c}</usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/typ
 e1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmssbx10.pfb>
-Output written on default_filename.pdf (5 pages, 91481 bytes).
+Output written on default_filename.pdf (5 pages, 91425 bytes).
 PDF statistics:
  33 PDF objects out of 1000 (max. 8388607)
  22 compressed objects within 1 object stream
