@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.11.20)  24 DEC 2014 08:34
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.11.20)  13 FEB 2015 04:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -412,7 +412,7 @@ Overfull \hbox (52.84256pt too wide) in paragraph at lines 16--24
  []
 
 
-Overfull \hbox (107.02943pt too wide) in paragraph at lines 51--65
+Overfull \hbox (29.08733pt too wide) in paragraph at lines 51--65
 [] 
  []
 
@@ -422,73 +422,73 @@ Overfull \hbox (107.02943pt too wide) in paragraph at lines 51--65
 
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (116.47427pt too wide) in paragraph at lines 66--83
+Overfull \hbox (38.53217pt too wide) in paragraph at lines 66--83
 [] 
  []
 
 
-Overfull \hbox (130.89247pt too wide) in paragraph at lines 84--97
+Overfull \hbox (52.95036pt too wide) in paragraph at lines 84--97
 [] 
  []
 
 
-Overfull \hbox (122.40556pt too wide) in paragraph at lines 98--107
+Overfull \hbox (44.46346pt too wide) in paragraph at lines 98--107
+[] 
+ []
+
+
+Overfull \hbox (54.71422pt too wide) in paragraph at lines 108--122
 [] 
  []
 
 [2]
-Overfull \hbox (138.13132pt too wide) in paragraph at lines 108--122
+Overfull \hbox (42.30402pt too wide) in paragraph at lines 123--133
 [] 
  []
 
 
-Overfull \hbox (120.24612pt too wide) in paragraph at lines 123--133
+Overfull \hbox (2.8836pt too wide) in paragraph at lines 134--162
 [] 
  []
 
 
-Overfull \hbox (165.52068pt too wide) in paragraph at lines 134--160
+Overfull \hbox (50.75879pt too wide) in paragraph at lines 163--173
 [] 
  []
 
 [3]
-Overfull \hbox (132.35089pt too wide) in paragraph at lines 161--171
+Overfull \hbox (59.61075pt too wide) in paragraph at lines 174--187
 [] 
  []
 
 
-Overfull \hbox (137.55286pt too wide) in paragraph at lines 172--185
+Overfull \hbox (46.22603pt too wide) in paragraph at lines 188--200
 [] 
  []
 
 
-Overfull \hbox (128.73064pt too wide) in paragraph at lines 186--198
-[] 
- []
-
-[4]
-Overfull \hbox (136.88211pt too wide) in paragraph at lines 199--208
+Overfull \hbox (54.3775pt too wide) in paragraph at lines 201--210
 [] 
  []
 
 
-Overfull \hbox (76.09427pt too wide) in paragraph at lines 209--211
+Overfull \hbox (97.15875pt too wide) in paragraph at lines 211--213
 [] 
  []
 
-[5] (./default_filename.aux) ) 
+[4] [5] (./default_filename.aux) ) 
 Here is how much of TeX's memory you used:
  2003 strings out of 493304
  29952 string characters out of 6139870
- 136474 words of memory out of 5000000
+ 138474 words of memory out of 5000000
  5463 multiletter control sequences out of 15000+600000
  46375 words of font info for 42 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  35i,7n,38p,278b,220s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}</
-usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/p
-ublic/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmssbx10.pfb>
-Output written on default_filename.pdf (5 pages, 92280 bytes).
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.en
+c}</usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/typ
+e1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmssbx10.pfb>
+Output written on default_filename.pdf (5 pages, 91481 bytes).
 PDF statistics:
  33 PDF objects out of 1000 (max. 8388607)
  22 compressed objects within 1 object stream

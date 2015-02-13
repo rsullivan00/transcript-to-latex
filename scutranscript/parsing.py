@@ -37,12 +37,34 @@ def lex_by_lines(s):
 
     return lexed
 
+def lex(s):
+    lines = lex_by_lines(s)
+    tokens = []
+    for line in lines:
+        tokens.append(line.split('\t'))
+
+    return tokens
+
+def is_department_code(s):
+    return re.match('[A-Z][A-Z][A-Z][A-Z]', s)
+
+def condense_tokens(line, token, number_to_condense):
+    for i, tok in enumerate(line):
+        if not tok == token:
+            continue
+        for j in range(number_to_condense):
+            line[i] += ' ' + line[i+j+1]
+
+        for j in range(number_to_condense):
+            del line[i+j+1]
+
+    return line
 
 """
 Populates and returns a Transcript object with raw pasted data from an eCampus unofficial web transcript.
 """
 def parse_body(text):
-    lexed = lex_by_lines(text)
+    lexed = lex(text)
 
 #    for line in lexed:
 #        debug_print(line)
@@ -62,38 +84,42 @@ def parse_body(text):
     ]
     metadata = []
     for line in lexed:
-        if line[:len(header_prefix)] == header_prefix:
+        if line[0] == header_prefix:
             # Start the new section
-            title = line.split(header_prefix)[1].strip()
+            title = line[1]
             sec = TranscriptSection(title)
             transcript.sections.append(sec)
             debug_print('New section: ' + title)
-        elif any(line.startswith(pre) for pre in subsection_prefixes):
+        elif any(line[0].startswith(pre) for pre in subsection_prefixes):
 #            import pdb; pdb.set_trace()
-            subsec = TranscriptSubSection(line)
+            subsec = TranscriptSubSection(line[0])
             transcript.sections[-1].subsections.append(subsec)
         else:
             # Or add to current section/subsection
             if len(transcript.sections) == 0:
                 # First section contains metadata
-                metadata.append(line)
+                metadata.append(line[-1])
             elif len(transcript.sections[-1].subsections):
                 # Last added subsection
-#                if line[:4].isupper():
-                    # Line has a class code, put it in a table
-                transcript.sections[-1].subsections[-1].add_content(line)
+#                if not line[0].isupper() and not line[0].startswith('Test'):
+                    # Shift the line one tab section. Inserting at the front can be slow. Watch this.
+#                    line.insert(0, ' ')
+                if line[0] == 'CUM':
+                    condense_tokens(line, 'CUM', 1)
+
+                transcript.sections[-1].subsections[-1].add_content('\t'.join(line))
             else:
                 # Last added section
-                transcript.sections[-1].add_content(line)
+                transcript.sections[-1].add_content('\t'.join(line))
 
     # Process metadata
     try:
         transcript.title = metadata[0].strip()
-        datestring = metadata[1].split(':')[-1].strip()
+        datestring = metadata[1].strip()
         transcript.date = datetime.datetime.strptime(datestring, '%Y-%m-%d')
         transcript.school = metadata[2].strip()
-        transcript.student = metadata[3].split(':')[-1].strip()
-        transcript.address = metadata[4].split(':')[-1].strip()
+        transcript.student = metadata[3].strip()
+        transcript.address = metadata[4].strip()
     except IndexError:
         raise Exception("Metadata missing")
 

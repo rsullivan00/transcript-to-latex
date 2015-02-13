@@ -48,6 +48,7 @@ class TranscriptSectionBase:
        return self.__str__()
 
    def add_content(self, new_content):
+       #if is_department_code(new_content[0]):
        self.content.append(new_content)
 
    def last_section(self):
@@ -61,7 +62,6 @@ class TranscriptSection(TranscriptSectionBase):
 
 class TranscriptSubSection(TranscriptSectionBase):
     """ Basic subsection of a transcript """
-
 class TranscriptTable:
     def __init__(self, columns):
         self.columns = columns
@@ -72,3 +72,13 @@ class TranscriptTable:
             raise AssertionError('Number of row elements must be the same as the number of columns')
         else: 
             self.content.append(row_content_list)
+
+class TranscriptTableRow:
+    def __init__(self, content=None):
+        if content is None:
+            content = []
+        self.content = content
+
+
+
+   

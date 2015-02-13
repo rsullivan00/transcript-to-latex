@@ -16,7 +16,7 @@ def build_document(transcript):
 
     doc.append(Command('maketitle'))
 
-    # Iterate through each transcript seuction
+    # Iterate through each transcript section
     for t_section in transcript.sections:
         # Create new section
         s = Section(escape_latex(t_section.title))
@@ -38,6 +38,11 @@ def build_document(transcript):
                     ss_table.append('&')
                     ss_table.add_multicolumn(num_cols-1, 'l', escape_latex(ss_line))
                     ss_table.append(r'\\')
+                elif not ss_line[:3].isupper() and not ss_line.startswith('Test'):
+                    #ss_table.add_multicolumn(1, 'l', ' ')
+                    #ss_table.append('&')
+                    ss_table.add_multicolumn(num_cols, 'l', escape_latex(ss_line))
+                    ss_table.append(r'\\')
                 else:
                     if ss_line.startswith('TERM'):
                         ss_table.add_hline()
@@ -53,7 +58,3 @@ def build_document(transcript):
     doc.generate_pdf()
     return doc
 
-def test():
-    buildDocument(None)
-
-#test()
