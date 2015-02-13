@@ -21,7 +21,7 @@ class Document(BaseLaTeXContainer):
 
     def __init__(self, filename='default_filename', documentclass='article',
                  fontenc='T1', inputenc='utf8', author=None, title=None,
-                 date=None, data=None):
+                 date=None, data=None, program='pdflatex'):
         self.filename = filename
 
         self.documentclass = documentclass
@@ -36,6 +36,8 @@ class Document(BaseLaTeXContainer):
             packages.append(Package(author, base='author'))
         if date is not None:
             packages.append(Package(date, base='date'))
+
+        self.program = program
 
         super().__init__(data, packages=packages)
 
@@ -65,7 +67,7 @@ class Document(BaseLaTeXContainer):
         """Generates a pdf"""
         self.generate_tex()
 
-        command = 'pdflatex --jobname="' + self.filename + '" "' + \
+        command = self.program + ' --jobname="' + self.filename + '" "' + \
             self.filename + '.tex"'
 
         subprocess.check_call(command, shell=True)
