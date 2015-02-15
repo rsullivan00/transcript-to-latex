@@ -1,3 +1,5 @@
+import os 
+
 from django.shortcuts import render
 from django.http import HttpResponse
 
@@ -46,5 +48,6 @@ def pdf_view(request, doc):
 
         response['Content-Disposition'] = 'inline;filename=%s.pdf' %doc.filename 
 
+        os.remove(filePath)
         return response
     pdf.closed

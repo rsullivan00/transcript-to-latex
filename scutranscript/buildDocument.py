@@ -12,7 +12,7 @@ Processes a Transcript object to build a LaTeX document.
 """
 def build_document(transcript):
     # Open temporary file
-    doc = Document(documentclass='article', title=transcript.title, author=transcript.student, date=transcript.date.strftime('%d %B %Y'))
+    doc = Document(documentclass='article', title=transcript.title, author=transcript.student, date=transcript.date.strftime('%d %B %Y'), temporary=True)
 
     doc.packages.append(Package('geometry', option='margin=1.0in'))
     doc.preamble.append(Command('renewcommand', argument=['\\familydefault', '\\sfdefault']))
@@ -57,6 +57,6 @@ def build_document(transcript):
             s.append(ss)
 
         doc.append(s)
-    doc.generate_pdf()
+    doc.generate_pdf(clean=True)
     return doc
 

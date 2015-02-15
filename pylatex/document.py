@@ -10,6 +10,7 @@
 """
 
 import subprocess
+import tempfile 
 from .package import Package
 from .utils import dumps_list
 from .base_classes import BaseLaTeXContainer
@@ -21,7 +22,7 @@ class Document(BaseLaTeXContainer):
 
     def __init__(self, filename='default_filename', documentclass='article',
                  fontenc='T1', inputenc='utf8', author=None, title=None,
-                 date=None, data=None, program='pdflatex'):
+                 date=None, data=None, program='pdflatex', temporary=False):
         self.filename = filename
 
         self.documentclass = documentclass
@@ -39,6 +40,7 @@ class Document(BaseLaTeXContainer):
             packages.append(Package(date, base='date'))
 
         self.program = program
+        self.temporary = temporary
 
         super().__init__(data, packages=packages)
 
@@ -69,14 +71,18 @@ class Document(BaseLaTeXContainer):
 
     def generate_pdf(self, clean=True):
         """Generates a pdf"""
-        self.generate_tex()
+        f = tempfile.NamedTemporaryFile(prefix='transcript_')
+        self.filename = '.' + f.name
+        f.close()
 
-        command = self.program + ' --jobname="' + self.filename + '" "' + \
-            self.filename + '.tex"'
+        self.generate_tex()
+        #' --jobname="' + self.filename + 
+        command = self.program + ' -output-directory=' + './tmp ' + \
+            self.filename + '.tex'
 
         subprocess.check_call(command, shell=True)
 
-        #if clean:
-            #subprocess.call('rm "' + self.filename + '.aux" "' +
-            #                self.filename + '.log" "' +
-            #                self.filename + '.tex"', shell=True)
+        if clean:
+            subprocess.call('rm "' + self.filename + '.aux" "' +
+                            self.filename + '.log" "' +
+                            self.filename + '.tex"', shell=True)
