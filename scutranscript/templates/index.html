@@ -9,6 +9,7 @@
     <!-- Bootstrap -->
     {% load staticfiles %}
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/scutranscript.css' %}">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -25,15 +26,17 @@
         </h1>
       </div>
       <div class="row">
-        <div class="col-md-5 col-md-offset-1 text-center bg-info">
+        <div class="col-md-5 col-md-offset-1 text-center bg-info step">
           <h2>Step 1</h2>
           <h4>Select and copy the whole transcript.</h4>
           <p>
             <a href="https://ecampus.scu.edu"><button class="btn btn-default">Open eCampus</button></a>
           </p>
-          <img src="{% static 'images/select_copy.gif' %}" width="323px" height="133px" alt="Select_copy.gif. Copy the entire transcript using CTRL-A to select and CTRL-C to copy."/>
+          <img id="select-copy" src="{% static 'images/select_copy.gif' %}" width="323px" height="133px" alt="Select_copy.gif. Copy the entire transcript using CTRL-A to select and CTRL-C to copy."/>
+          <br />
+          (Use CTRL-A to select all of the text)
         </div>
-        <div class="col-md-5 text-center bg-success">
+        <div class="col-md-5 text-center bg-success step">
           <h2>Step 2</h2>
           <h4>Paste the contents here<h4>
           <p><textarea form="transcript_form" name="paste_content" id="paste_content" placeholder="Paste here!" class="text-center"></textarea></p>
