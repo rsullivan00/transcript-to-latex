@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.11.20)  15 FEB 2015 07:13
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.11.20)  15 FEB 2015 08:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -313,63 +313,22 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \Gm@layoutvoffset=\dimen110
 \Gm@dimlist=\toks17
 )
-(/usr/share/texlive/texmf-dist/tex/latex/tabu/tabu.sty
-Package: tabu 2011/02/26 v2.8 - flexible LaTeX tabulars (FC)
-
-(/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
-Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
-\col@sep=\dimen111
-\extrarowheight=\dimen112
-\NC@list=\toks18
-\extratabsurround=\skip43
-\backup@length=\skip44
-)
-(/usr/share/texlive/texmf-dist/tex/latex/varwidth/varwidth.sty
-Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
-\@vwid@box=\box26
-\sift@deathcycles=\count90
-\@vwid@loff=\dimen113
-\@vwid@roff=\dimen114
-)
-\c@taburow=\count91
-\tabu@nbcols=\count92
-\tabu@cnt=\count93
-\tabu@Xcol=\count94
-\tabu@alloc=\count95
-\tabu@nested=\count96
-\tabu@target=\dimen115
-\tabu@spreadtarget=\dimen116
-\tabu@naturalX=\dimen117
-\tabucolX=\dimen118
-\tabu@Xsum=\dimen119
-\extrarowdepth=\dimen120
-\abovetabulinesep=\dimen121
-\belowtabulinesep=\dimen122
-\tabustrutrule=\dimen123
-\tabu@thebody=\toks19
-\tabu@footnotes=\toks20
-\tabu@box=\box27
-\tabu@arstrutbox=\box28
-\tabu@hleads=\box29
-\tabu@vleads=\box30
-\tabu@cellskip=\skip45
-)
 (./default_filename.aux)
 \openout1 = `default_filename.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Try loading font information for T1+lmss on input line 17.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Try loading font information for T1+lmss on input line 15.
  (/usr/share/texmf/tex/latex/lm/t1lmss.fd
 File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
@@ -407,51 +366,51 @@ File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 17.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 15.
 (/usr/share/texmf/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 17.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 15.
 
 (/usr/share/texmf/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 17.
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 15.
 
 
 (/usr/share/texmf/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 17.
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 15.
 
 
 (/usr/share/texmf/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 17.
+(Font)              <12> on input line 15.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 17.
+(Font)              <8> on input line 15.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 17.
+(Font)              <6> on input line 15.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 21.
+(Font)              <10> on input line 19.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 21.
+(Font)              <7> on input line 19.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 21.
+(Font)              <5> on input line 19.
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4] (./default_fil
 ename.aux) ) 
 Here is how much of TeX's memory you used:
- 2092 strings out of 493304
- 27418 string characters out of 6139870
- 101249 words of memory out of 5000000
- 5543 multiletter control sequences out of 15000+600000
+ 1293 strings out of 493304
+ 16260 string characters out of 6139870
+ 84510 words of memory out of 5000000
+ 4755 multiletter control sequences out of 15000+600000
  42877 words of font info for 40 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 24i,9n,32p,250b,313s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 24i,7n,32p,253b,199s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}</usr/share/texmf/fo
 nts/type1/public/lm/lmss10.pfb></usr/share/texmf/fonts/type1/public/lm/lmss12.p
 fb></usr/share/texmf/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf/fonts/t
