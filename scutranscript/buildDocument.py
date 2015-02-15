@@ -1,8 +1,7 @@
 #from PyLaTeX import *
-from pylatex import Document, Section, Subsection, Command, Package
+from pylatex import Document, Section, Subsection, Command, Package, Table
 from pylatex.numpy import Matrix
 from pylatex.utils import * 
-from pylatex.table import Tabu
 
 from .transcript import Transcript
 from .helpers import debug_print
@@ -32,7 +31,7 @@ def build_document(transcript):
         for t_subsection in t_section.subsections:
             ss = Subsection(escape_latex(t_subsection.title))
             num_cols = max(len(l.split('\t')) for l in t_subsection.content)
-            ss_table = Tabu(' l ' * num_cols)
+            ss_table = Table(' l ' * num_cols)
             # Add content to subsection
             for ss_line in t_subsection.content:
 
