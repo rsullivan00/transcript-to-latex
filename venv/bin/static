@@ -1,4 +1,4 @@
-#!/home/rick/Desktop/transcript-to-latex/venv/bin/python
+#!/home/rick/Desktop/transcript-to-latex/venv/bin/python3
 # EASY-INSTALL-ENTRY-SCRIPT: 'static3==0.5.1','console_scripts','static'
 __requires__ = 'static3==0.5.1'
 import sys

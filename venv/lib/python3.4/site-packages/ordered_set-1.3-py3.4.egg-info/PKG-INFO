@@ -1,0 +1,10 @@
+Metadata-Version: 1.0
+Name: ordered-set
+Version: 1.3
+Summary: A MutableSet that remembers its order, so that every entry has an index.
+Home-page: http://github.com/LuminosoInsight/ordered-set
+Author: Luminoso Technologies, Inc.
+Author-email: rob@luminoso.com
+License: MIT-LICENSE
+Description: UNKNOWN
+Platform: any

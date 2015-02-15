@@ -1,4 +1,4 @@
-#!/home/rick/Desktop/transcript-to-latex/venv/bin/python
+#!/home/rick/Desktop/transcript-to-latex/venv/bin/python3
 from django.core import management
 
 if __name__ == "__main__":
