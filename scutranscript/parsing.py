@@ -83,27 +83,25 @@ def parse_body(text):
         'Graduate Career'
     ]
     metadata = []
+    section = 0
     for line in lexed:
+        # New sections
         if line[0] == header_prefix:
-            # Start the new section
+            section += 1
             title = line[1]
             sec = TranscriptSection(title)
             transcript.sections.append(sec)
             debug_print('New section: ' + title)
+        # Extract metadata
+        elif section == 0:
+            metadata.append(line[-1])
+        # New subsection
         elif any(line[0].startswith(pre) for pre in subsection_prefixes):
-#            import pdb; pdb.set_trace()
             subsec = TranscriptSubSection(line[0])
             transcript.sections[-1].subsections.append(subsec)
         else:
             # Or add to current section/subsection
-            if len(transcript.sections) == 0:
-                # First section contains metadata
-                metadata.append(line[-1])
-            elif len(transcript.sections[-1].subsections):
-                # Last added subsection
-#                if not line[0].isupper() and not line[0].startswith('Test'):
-                    # Shift the line one tab section. Inserting at the front can be slow. Watch this.
-#                    line.insert(0, ' ')
+            if len(transcript.sections[-1].subsections) > 0:
                 if line[0] == 'CUM':
                     condense_tokens(line, 'CUM', 1)
 
@@ -112,16 +110,15 @@ def parse_body(text):
                 # Last added section
                 transcript.sections[-1].add_content('\t'.join(line))
 
+
     # Process metadata
-    try:
+    if len(metadata) > 0:
         transcript.title = metadata[0].strip()
         datestring = metadata[1].strip()
         transcript.date = datetime.datetime.strptime(datestring, '%Y-%m-%d')
         transcript.school = metadata[2].strip()
         transcript.student = metadata[3].strip()
         transcript.address = metadata[4].strip()
-    except IndexError:
-        raise Exception("Metadata missing")
 
     return transcript 
 

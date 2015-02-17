@@ -16,7 +16,8 @@ class Transcript:
     """ Contains all information necessary to build a transcript. 
     Used as an intermediate representation that can be referenced for generating a transcript in a variety of formats.
     """
-    def __init__(self, title='Web Unofficial Transcript', school='Santa Clara University', date=str(datetime.date), sections=[], student=None, address=None):
+    def __init__(self, title='Web Unofficial Transcript', school='Santa Clara University', \
+            date=datetime.date.today(), sections=[], student=None, address=None):
         self.title = title
         self.school = school 
         self.date = date 
@@ -30,6 +31,10 @@ class Transcript:
         else:
             return self.sections[-1].last_section()
 
+    def __repr__(self):
+        return 'Transcript(title=%s, school=%s, date=%s, sections=%s, student=%s, address=%s' % \
+                (self.title, self.school, self.date, self.sections, self.student, self.address)
+
 class TranscriptSectionBase:
    def __init__(self, title, content=None, subsections=None):
         if content is None:
@@ -41,11 +46,9 @@ class TranscriptSectionBase:
         self.content = content
         self.subsections = subsections
 
-   def __str__(self):
-       return "TranscriptSectionBase: " + self.title    
-   
    def __repr__(self):
-       return self.__str__()
+       return "TranscriptSectionBase(title=%s, content=%s, subsections=%s)" % \
+               (self.title, self.content, self.subsections)
 
    def add_content(self, new_content):
        #if is_department_code(new_content[0]):
