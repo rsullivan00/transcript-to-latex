@@ -70,6 +70,7 @@ def parse_body(text):
 #        debug_print(line)
 
     transcript = Transcript()
+    transcript.sections = []
     # Divide into sections by section headers
     header_prefix = '- - - - -'
     subsection_prefixes = [
@@ -121,7 +122,6 @@ def parse_body(text):
         transcript.address = metadata[4].strip()
 
     return transcript 
-
 
 def test():
     inFile = open('samples/rick.txt', 'r')
