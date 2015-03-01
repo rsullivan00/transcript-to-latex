@@ -46,7 +46,7 @@ def pdf_view(request, doc):
     with open(filePath, 'rb') as pdf:
         response = HttpResponse(pdf.read(), content_type='application/pdf')
 
-        response['Content-Disposition'] = 'inline;filename=%s.pdf' %doc.filename 
+        response['Content-Disposition'] = 'inline;filename=%s' % filePath.replace('/tmp/', '') 
 
         os.remove(filePath)
         return response

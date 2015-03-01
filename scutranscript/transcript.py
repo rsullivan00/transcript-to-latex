@@ -65,6 +65,7 @@ class TranscriptSection(TranscriptSectionBase):
 
 class TranscriptSubSection(TranscriptSectionBase):
     """ Basic subsection of a transcript """
+
 class TranscriptTable:
     def __init__(self, columns):
         self.columns = columns

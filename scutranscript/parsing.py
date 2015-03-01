@@ -122,9 +122,3 @@ def parse_body(text):
         transcript.address = metadata[4].strip()
 
     return transcript 
-
-def test():
-    inFile = open('samples/rick.txt', 'r')
-    print(parseBody(inFile.read()))
-
-#test()

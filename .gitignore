@@ -1,5 +1,6 @@
 *.pyc
 *.log
 *.aux
-**/__pycache__
-ven
+__pycache__/
+venv/
+tmp/

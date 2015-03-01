@@ -72,12 +72,11 @@ class Document(BaseLaTeXContainer):
     def generate_pdf(self, clean=True):
         """Generates a pdf"""
         f = tempfile.NamedTemporaryFile(prefix='transcript_')
-        self.filename = '.' + f.name
+        self.filename = f.name
         f.close()
 
         self.generate_tex()
-        #' --jobname="' + self.filename + 
-        command = self.program + ' -output-directory=' + './tmp ' + \
+        command = self.program + ' -output-directory=' + '/tmp ' + \
             self.filename + '.tex'
 
         subprocess.check_call(command, shell=True)

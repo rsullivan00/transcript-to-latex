@@ -1,6 +1,6 @@
 import sys
 
 def debug_print(s):
-    print(s, file=sys.stderr)
-    #print(s)
+    print(s)
+    sys.stdout.flush()
     return 0
