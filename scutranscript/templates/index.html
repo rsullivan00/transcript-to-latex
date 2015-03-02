@@ -40,12 +40,19 @@
           <h2>Step 2</h2>
           <h4>Paste the contents here<h4>
           <p><textarea form="transcript_form" name="paste_content" id="paste_content" placeholder="Paste here!" class="text-center"></textarea></p>
-          <p>
           <form id="transcript_form" action="/transcript/" method="post">{% csrf_token %}
-          <button type="submit" class="btn btn-success" disabled>Get PDF</button>
-          <button type="submit" class="btn btn-primary" disabled>Get .doc</button>
-        </form>
-          </p>
+            <div class="row">
+              <div class="col-md-6 col-md-offset-3">
+                <button type="submit" class="btn btn-lg btn-block btn-success" disabled>Get PDF</button>
+              </div>
+            </div>
+          <!--<button type="submit" class="btn btn-primary" disabled>Get .doc</button>-->
+          </form>
+          <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+          Right now, SCU Transcript only generates PDF documents, but <a href='mailto:rick@ricksullivan.net?subject=Hey! I want a new file format on SCU Transcript!&body=Can you add the ability to generate a transcript in _____ format?'>let me know if you are looking for another format.</a>
+            </div>
+          </div>
         <div>
       </div>
     </div>

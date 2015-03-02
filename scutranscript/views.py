@@ -48,6 +48,6 @@ def pdf_view(request, doc):
 
         response['Content-Disposition'] = 'inline;filename=%s' % filePath.replace('/tmp/', '') 
 
-        os.remove(filePath)
         return response
     pdf.closed
+    os.remove(filePath)
