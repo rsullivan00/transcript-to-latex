@@ -34,28 +34,47 @@
           </p>
           <img id="select-copy" src="{% static 'images/select_copy.gif' %}" width="323px" height="133px" alt="Select_copy.gif. Copy the entire transcript using CTRL-A to select and CTRL-C to copy."/>
           <br />
-          (Use CTRL-A to select all of the text)
+          <small>
+          Use CTRL-A to select all of the text
+          </small>
         </div>
         <div class="col-md-5 text-center bg-success step">
           <h2>Step 2</h2>
-          <h4>Paste the contents here<h4>
+          <h4>Paste the contents here</h4>
           <p><textarea form="transcript_form" name="paste_content" id="paste_content" placeholder="Paste here!" class="text-center"></textarea></p>
           <form id="transcript_form" action="/transcript/" method="post">{% csrf_token %}
             <div class="row">
               <div class="col-md-6 col-md-offset-3">
-                <button type="submit" class="btn btn-lg btn-block btn-success" disabled>Get PDF</button>
+                <button type="submit" class="btn btn-block btn-success" disabled>Get PDF</button>
               </div>
             </div>
           <!--<button type="submit" class="btn btn-primary" disabled>Get .doc</button>-->
           </form>
           <div class="row">
             <div class="col-md-10 col-md-offset-1">
+        <small>
           Right now, SCU Transcript only generates PDF documents, but <a href='mailto:rick@ricksullivan.net?subject=Hey! I want a new file format on SCU Transcript!&body=Can you add the ability to generate a transcript in _____ format?'>let me know if you are looking for another format.</a>
+</small>
             </div>
           </div>
         <div>
       </div>
     </div>
+    </div>
+</div>
+  <footer class="footer">
+    <div class="container">
+      <ul class="text-muted text-center list-inline">
+        <li>Built by Rick Sullivan</li>
+        <li>·</li>
+        <li><a href="//www.ricksullivan.net">Website</a></li>
+        <li>·</li>
+        <li><a href="mailto:rick@ricksullivan.net">Email</a></li>
+        <li>·</li>
+        <li><a href="//www.github.com/Rsullivan00">Github</a></li>
+    </ul>
+    </div>
+  </footer>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
