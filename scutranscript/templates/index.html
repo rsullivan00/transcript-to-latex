@@ -30,7 +30,7 @@
           <h2>Step 1</h2>
           <h4>Select and copy the whole transcript.</h4>
           <p>
-            <a href="https://ecampus.scu.edu"><button class="btn btn-default">Open eCampus</button></a>
+            <a target="_blank" href="https://ecampus.scu.edu"><button class="btn btn-default">Open eCampus</button></a>
           </p>
           <img id="select-copy" src="{% static 'images/select_copy.gif' %}" width="323px" height="133px" alt="Select_copy.gif. Copy the entire transcript using CTRL-A to select and CTRL-C to copy."/>
           <br />
@@ -41,7 +41,7 @@
         <div class="col-md-5 text-center bg-success step">
           <h2>Step 2</h2>
           <h4>Paste the contents here.</h4>
-          <p><textarea form="transcript_form" name="paste_content" id="paste_content" placeholder="Paste here!" class="text-center"></textarea></p>
+          <p><textarea form="transcript_form" name="paste_content" id="paste_content" placeholder="Paste here!" class="text-center" rows="1"></textarea></p>
           <form id="transcript_form" action="/transcript/" method="post">{% csrf_token %}
             <div class="row">
               <div class="col-md-6 col-md-offset-3">
@@ -64,6 +64,9 @@
 </div>
   <footer class="footer">
     <div class="container">
+      <div class="text-muted text-center">
+        Your information is never stored or used for any other purposes. It is immediately deleted after building your document. See the source code <a href="//github.com/rsullivan00/transcript-to-latex">here</a>.
+    </div>
       <ul class="text-muted text-center list-inline">
         <li>Built by Rick Sullivan</li>
         <li>·</li>

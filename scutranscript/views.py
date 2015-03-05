@@ -7,6 +7,7 @@ from .transcript import TranscriptForm
 from .parsing import parse_body
 from .buildDocument import *
 from .helpers import debug_print
+from .settings import DEBUG
 
 import sys
 
@@ -27,13 +28,16 @@ def transcript(request):
         form = TranscriptForm(request.POST)
         if form.is_valid():
             content = form.cleaned_data['paste_content']
-            parsed = parse_body(content)
-            # Build document
-            doc = build_document(parsed)
+            try:
+                parsed = parse_body(content)
+                # Build document
+                doc = build_document(parsed)
+            except Exception as e: 
+                return error_view(request, e) 
+            
             return pdf_view(request, doc)
-
     else:
-        return HttpResponse('Failure')
+        return error_view(request)
 
 """ 
 Directs the user to a page containing the pdf contained in the 'doc' file.
@@ -51,3 +55,13 @@ def pdf_view(request, doc):
         return response
     pdf.closed
     os.remove(filePath)
+
+""" 
+Default error page when document generation fails.
+"""
+def error_view(request, e):
+    if DEBUG:
+        debug_print("Error: %s" % e)
+        return render(request)
+    else:
+        return render(request, 'error.html', status=400)

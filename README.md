@@ -1,16 +1,15 @@
 # Transcript to LaTeX pdf converter 
 
-Python original version: python-2.7.8
-
 ## Running Locally
 
-Make sure you have Python [installed properly](http://install.python-guide.org).  Also, install the [Heroku Toolbelt](https://toolbelt.heroku.com/).
+Make sure you have Python [installed properly](http://install.python-guide.org). Also, install the [Heroku Toolbelt](https://toolbelt.heroku.com/) and Virtualenv.
 
 ```sh
-$ git clone git@github.com:heroku/python-getting-started.git
-$ cd python-getting-started
-$ pip install -r requirements.txt
-$ python manage.py syncdb
+$ git clone github.com/rsullivan00/transcript-to-latex.git
+$ cd transcript-to-latex
+$ virtualenv --no-site-packages --python=python3 venv
+$ source venv/bin/activate
+$ pip install -r requirements.txt --allow-all-external
 $ foreman start web
 ```
 

@@ -1,3 +1,6 @@
+textarea {
+    resize: none;
+}
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
