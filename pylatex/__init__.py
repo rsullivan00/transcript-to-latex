@@ -12,6 +12,7 @@
 from .document import Document
 from .math import Math
 from .package import Package
+from .command import Command 
 from .section import Section, Subsection, Subsubsection
 from .table import Table
 from .pgfplots import TikZ, Axis, Plot

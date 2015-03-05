@@ -1,35 +1,62 @@
 #from PyLaTeX import *
-from pylatex import Document, Section, Subsection, Table, Math, TikZ, Axis, \
-            Plot
+from pylatex import Document, Section, Subsection, Command, Package, Table
 from pylatex.numpy import Matrix
-from pylatex.utils import italic
+from pylatex.utils import * 
 
-def buildDocument(content):
+from .transcript import Transcript
+from .helpers import debug_print
+import re
+
+"""
+Processes a Transcript object to build a LaTeX document.
+"""
+def build_document(transcript):
     # Open temporary file
-    doc = Document(documentclass='scrartcl')
-    section = Section('Yaay the first section, it can even be ' + italic('italic'))
+    doc = Document(documentclass='article', title=transcript.title, author=transcript.student, date=transcript.date.strftime('%d %B %Y'), temporary=True)
 
-    section.append('Some regular text')
+    doc.packages.append(Package('geometry', option='margin=1.0in'))
+    doc.preamble.append(Command('renewcommand', argument=['\\familydefault', '\\sfdefault']))
 
-    math = Subsection('Math that is incorrect', data=[Math(data=['2*3', '=', 9])])
+    doc.append(Command('maketitle'))
 
-    section.append(math)
-    table = Table('rc|cl')
-    table.add_hline()
-    table.add_row((1, 2, 3, 4))
-    table.add_hline(1, 2)
-    table.add_empty_row()
-    table.add_row((4, 5, 6, 7))
+    # Iterate through each transcript section
+    for t_section in transcript.sections:
+        # Create new section
+        s = Section(escape_latex(t_section.title))
+        # Add content to section
+        for s_line in t_section.content:
+            s.append(escape_latex(s_line) + ' \\\n')
 
-    table = Subsection('Table of something', data=[table])
+        # Add subsections to section
+        for t_subsection in t_section.subsections:
+            ss = Subsection(escape_latex(t_subsection.title))
+            num_cols = max(len(l.split('\t')) for l in t_subsection.content)
+            ss_table = Table(' l ' * num_cols)
+            # Add content to subsection
+            for ss_line in t_subsection.content:
 
-    section.append(table)
+                if ss_line.startswith('Course Topic'):
+                    #ss_table.add_multicolumn(1, 'l', ' ')
+                    ss_table.append('&')
+                    ss_table.add_multicolumn(num_cols-1, 'l', escape_latex(ss_line))
+                    ss_table.append(r'\\')
+                elif not ss_line[:3].isupper() and not ss_line.startswith('Test'):
+                    #ss_table.add_multicolumn(1, 'l', ' ')
+                    #ss_table.append('&')
+                    ss_table.add_multicolumn(num_cols, 'l', escape_latex(ss_line))
+                    ss_table.append(r'\\')
+                else:
+                    if ss_line.startswith('TERM'):
+                        ss_table.add_hline()
+                    filled = escape_latex(ss_line).split('\t')
+                    filled += (num_cols - len(filled)) * ['']
+                    ss_table.add_row(filled)
+                    #ss.append(escape_latex(ss_line) + ' \\\n')
 
-    doc.append(section)
+            ss.append(ss_table)
+            s.append(ss)
 
-    doc.generate_pdf()
+        doc.append(s)
+    doc.generate_pdf(clean=True)
+    return doc
 
-def test():
-    buildDocument(None)
-
-test()
