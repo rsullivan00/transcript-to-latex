@@ -1,6 +1,18 @@
 textarea {
     resize: none;
 }
+
+/* columns of same height styles */
+.row-same-height {
+    display: table;
+    width: 100%;
+}
+
+.col-same-height {
+    display: table-cell;
+    float: none !important;
+}
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
