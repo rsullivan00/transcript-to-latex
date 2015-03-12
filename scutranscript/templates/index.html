@@ -54,8 +54,11 @@
           <p><textarea form="transcript_form" name="paste_content" id="paste_content" placeholder="Paste here!" class="text-center" rows="1"></textarea></p>
           <form id="transcript_form" action="/transcript/" method="post">{% csrf_token %}
             <div class="row">
-              <div class="col-md-6 col-md-offset-3">
-                <button type="submit" class="btn btn-block btn-success" disabled>Get PDF</button>
+              <div class="col-md-6">
+                <input type="submit" class="btn btn-block btn-success" name="format_pdf" value="Get PDF" disabled />
+              </div>
+              <div class="col-md-3">
+                <input type="submit" class="btn btn-block btn-warning" name="format_json" value="Get JSON" disabled />
               </div>
             </div>
           <!--<button type="submit" class="btn btn-primary" disabled>Get .doc</button>-->

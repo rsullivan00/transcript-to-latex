@@ -93,23 +93,26 @@ def parse_body(text):
             sec = TranscriptSection(title)
             transcript.sections.append(sec)
             debug_print('New section: ' + title)
+
         # Extract metadata
         elif section == 0:
             metadata.append(line[-1])
+
         # New subsection
         elif any(line[0].startswith(pre) for pre in subsection_prefixes):
             subsec = TranscriptSubSection(line[0])
             transcript.sections[-1].subsections.append(subsec)
+
         else:
             # Or add to current section/subsection
             if len(transcript.sections[-1].subsections) > 0:
                 if line[0] == 'CUM':
                     condense_tokens(line, 'CUM', 1)
 
-                transcript.sections[-1].subsections[-1].add_content('\t'.join(line))
+                transcript.sections[-1].subsections[-1].add_content(line)
             else:
                 # Last added section
-                transcript.sections[-1].add_content('\t'.join(line))
+                transcript.sections[-1].add_content(line)
 
 
     # Process metadata

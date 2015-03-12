@@ -25,16 +25,19 @@ def build_document(transcript):
         s = Section(escape_latex(t_section.title))
         # Add content to section
         for s_line in t_section.content:
+            s_line = '\t'.join(s_line)
             s.append(escape_latex(s_line) + ' \\\n')
 
         # Add subsections to section
         for t_subsection in t_section.subsections:
             ss = Subsection(escape_latex(t_subsection.title))
-            num_cols = max(len(l.split('\t')) for l in t_subsection.content)
+            num_cols = max(len(l) for l in t_subsection.content)
             ss_table = Table(' l ' * num_cols)
             # Add content to subsection
             for ss_line in t_subsection.content:
 
+                # TODO: Change this to use lists
+                ss_line = '\t'.join(ss_line)
                 if ss_line.startswith('Course Topic'):
                     #ss_table.add_multicolumn(1, 'l', ' ')
                     ss_table.append('&')

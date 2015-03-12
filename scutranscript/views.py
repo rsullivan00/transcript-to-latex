@@ -10,6 +10,8 @@ from .helpers import debug_print
 from .settings import DEBUG
 
 import sys
+import json
+import jsonpickle
 
 """
 Landing page. Template at templates/index.html.
@@ -29,13 +31,21 @@ def transcript(request):
         if form.is_valid():
             content = form.cleaned_data['paste_content']
             try:
-                parsed = parse_body(content)
-                # Build document
-                doc = build_document(parsed)
-            except Exception as e: 
+                transcript = parse_body(content)
+            except Exception as e:
                 return error_view(request, e) 
-            
+ 
+            if 'format_json' in request.POST:
+                return json_view(request, transcript)
+
+            # Default to pdf
+            try:
+                doc = build_document(transcript)
+            except Exception as e:
+                return error_view(request, e) 
+
             return pdf_view(request, doc)
+
     else:
         return error_view(request)
 
@@ -65,3 +75,12 @@ def error_view(request, e):
         return render(request)
     else:
         return render(request, 'error.html', status=400)
+
+""" 
+Returns structured JSON
+"""
+def json_view(request, transcript):
+    def date_handler(obj):
+        return obj.isoformat() if hasattr(obj, 'isoformat') else obj
+
+    return HttpResponse(jsonpickle.encode(transcript, unpicklable=False), content_type="application/json")
