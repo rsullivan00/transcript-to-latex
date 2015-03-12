@@ -1,9 +1,9 @@
 $(document).ready(function() {
-    //check validity on page load
+	//check validity on page load
 	validateSubmit();
 	
 	//listen for input editing to validate
-    $('#paste_content').on('input', validateSubmit);
+	$('#paste_content').on('input', validateSubmit);
 });
 
 function validateSubmit() {
