@@ -1,13 +1,8 @@
 *.pyc
-<<<<<<< HEAD
 __pycache__
 venv
-=======
 *.log
 *.aux
-__pycache__/
-venv/
-tmp/
+tmp
 .key
->>>>>>> 5e15f959f8e68d3550b523464eece021afc497ed
 .env
