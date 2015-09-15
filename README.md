@@ -1,6 +1,7 @@
 # Transcript to LaTeX pdf converter 
 
-## This application can be found at www.SCUTranscript.com.
+### This application can be found at www.SCUTranscript.com.
+
 ### Feel free to give me feedback or feature requests!
 
 ## Running Locally
