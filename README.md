@@ -1,5 +1,8 @@
 # Transcript to LaTeX pdf converter 
 
+## This application can be found at www.SCUTranscript.com.
+### Feel free to give me feedback or feature requests!
+
 ## Running Locally
 
 Make sure you have Python [installed properly](http://install.python-guide.org). Also, install the [Heroku Toolbelt](https://toolbelt.heroku.com/) and Virtualenv.
