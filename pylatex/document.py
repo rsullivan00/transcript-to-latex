@@ -10,7 +10,7 @@
 """
 
 import subprocess
-import tempfile 
+import tempfile
 from .package import Package
 from .utils import dumps_list
 from .base_classes import BaseLaTeXContainer
@@ -22,7 +22,8 @@ class Document(BaseLaTeXContainer):
 
     def __init__(self, filename='default_filename', documentclass='article',
                  fontenc='T1', inputenc='utf8', author=None, title=None,
-                 date=None, data=None, program='pdflatex', temporary=False):
+                 subtitle=None, date=None, data=None, program='pdflatex',
+                 temporary=False):
         self.filename = filename
 
         self.documentclass = documentclass
@@ -34,6 +35,8 @@ class Document(BaseLaTeXContainer):
 
         if title is not None:
             packages.append(Package(title, base='title'))
+        if subtitle is not None:
+            packages.append(Package(subtitle, base='subtitle'))
         if author is not None:
             packages.append(Package(author, base='author'))
         if date is not None:

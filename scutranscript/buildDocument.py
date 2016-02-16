@@ -1,18 +1,22 @@
-#from PyLaTeX import *
-from pylatex import Document, Section, Subsection, Command, Package, Table
-from pylatex.numpy import Matrix
-from pylatex.utils import * 
+from pylatex import Document
+from pylatex import Section
+from pylatex import Subsection
+from pylatex import Command
+from pylatex import Package
+from pylatex import Table
 
-from .transcript import Transcript
-from .helpers import debug_print
-import re
+from pylatex.utils import escape_latex
 
-"""
-Processes a Transcript object to build a LaTeX document.
-"""
+
 def build_document(transcript):
+    """
+    Processes a Transcript object to build a LaTeX document.
+    """
     # Open temporary file
-    doc = Document(documentclass='article', title=transcript.title, author=transcript.student, date=transcript.date.strftime('%d %B %Y'), temporary=True)
+    doc = Document(documentclass='scrartcl', title=transcript.title,
+                   subtitle=transcript.school,
+                   author=transcript.student,
+                   date=transcript.date.strftime('%d %B %Y'), temporary=True)
 
     doc.packages.append(Package('geometry', option='margin=1.0in'))
     doc.preamble.append(Command('renewcommand', argument=['\\familydefault', '\\sfdefault']))
@@ -36,16 +40,13 @@ def build_document(transcript):
             # Add content to subsection
             for ss_line in t_subsection.content:
 
-                # TODO: Change this to use lists
                 ss_line = '\t'.join(ss_line)
                 if ss_line.startswith('Course Topic'):
-                    #ss_table.add_multicolumn(1, 'l', ' ')
                     ss_table.append('&')
-                    ss_table.add_multicolumn(num_cols-1, 'l', escape_latex(ss_line))
+                    ss_table.add_multicolumn(num_cols-1, 'l',
+                                             escape_latex(ss_line))
                     ss_table.append(r'\\')
                 elif not ss_line[:3].isupper() and not ss_line.startswith('Test'):
-                    #ss_table.add_multicolumn(1, 'l', ' ')
-                    #ss_table.append('&')
                     ss_table.add_multicolumn(num_cols, 'l', escape_latex(ss_line))
                     ss_table.append(r'\\')
                 else:
@@ -54,12 +55,11 @@ def build_document(transcript):
                     filled = escape_latex(ss_line).split('\t')
                     filled += (num_cols - len(filled)) * ['']
                     ss_table.add_row(filled)
-                    #ss.append(escape_latex(ss_line) + ' \\\n')
 
             ss.append(ss_table)
             s.append(ss)
 
         doc.append(s)
     doc.generate_pdf(clean=True)
-    return doc
 
+    return doc
